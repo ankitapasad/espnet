@@ -41,6 +41,8 @@ def load_json(fname):
 class ReadCTCEmissions:
     def __init__(self, token_fn, log_dir, split="devel"):
         self.token_fn = token_fn
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir, exist_ok=True)
         self.log_dir = log_dir
         self.split = split
         self.nel_utt_lst = list(
